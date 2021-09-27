@@ -46,7 +46,14 @@ export GITHUB_USERNAME=`gh api user | jq -r '.login'`
 echo \$GITHUB_USERNAME
 ```
 
-You should see your GitHub username printed. If not, redo the `gh auth step`
+You should see your GitHub username printed. *If not, redo the `gh auth` step.* (see below)
+
+<details>
+  <summary>gh auth issues. </summary>
+  <br>
+  To fix the issues with `gh auth`:
+</details>
+
 Then, check if the student already cloned dotfiles, in that case you can continue with the instalation.
 
 ```
@@ -60,7 +67,7 @@ After, run
 gh api user/emails | jq -r '.[].email'
 ```
 
-Before the next step run
+*Before the next step run*
 
 ```
 git remote rm upstream
@@ -73,6 +80,6 @@ cd ~/code/\$GITHUB_USERNAME/dotfiles && zsh git_setup.sh
 ```
 
 This will ask you for your name (FirstName LastName) and your email.
-Please now quit all your opened terminal windows.
+*Please now quit all your opened terminal windows.*
 
-If you open the terminal again and is not looking like it should. You need to redo all the steps again. And again, until it looks pretty as we use it in Le Wagon.
+If you open the terminal again and is not looking like it should you need to redo all the steps again. And again, until it looks pretty as we use it in Le Wagon.
