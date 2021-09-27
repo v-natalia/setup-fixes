@@ -49,10 +49,21 @@ echo \$GITHUB_USERNAME
 You should see your GitHub username printed. *If not, redo the `gh auth` step.* (see below)
 
 <details>
-  <summary>gh auth issues. </summary>
+  <summary><h2>gh auth issues.<h2></summary>
+
   <br>
-  To fix the issues with `gh auth`:
+  To fix the issues with `gh auth`, run:
+
+`gh auth logout`
+Say yes.
+`gh auth login -s 'user:email' -w`
+without editing. You need to Enter and it will open the browser where you need to put the code, accept, go back to the terminal and press ENTER again.
+Check with:
+`gh auth status`
+Is ok, if it says Logged in and it says that you use SSH protocol.
 </details>
+
+
 
 Then, check if the student already cloned dotfiles, in that case you can continue with the instalation.
 
