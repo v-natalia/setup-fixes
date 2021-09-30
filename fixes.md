@@ -59,7 +59,7 @@ export GITHUB_USERNAME=`gh api user | jq -r '.login'`
 echo \$GITHUB_USERNAME
 ```
 
-You should see your GitHub username printed. *If not, redo the `gh auth` step.* (see below)
+You should see your GitHub username printed. **If not, redo the `gh auth` step.** (see below)
 
 Then, check if the student already cloned dotfiles, in that case you can continue with the instalation.
 
@@ -100,7 +100,7 @@ This will ask you for the student's name (FirstName LastName, without any specia
 
 *Please now quit all the opened terminal windows.*
 
-If they open the terminal again and is not looking like it should (the classic terminal of students of Le Wagon) they need to redo all the steps from this section again. And again, and again, until it looks as we use it in Le Wagon.
+If they open the terminal again and is not looking like it should (the classic terminal of students of Le Wagon) they need to redo all the steps from this section again. And again, and again, until it looks as we use it in Le Wagon (Actually, I **just** have to re-do many times this with 1 student, for the others it was ok with only 1 time.).
 
 
 ## gh auth issues.
@@ -140,3 +140,48 @@ Is ok, if it says Logged in and it says that is using SSH protocol.
 Like in the image below.
 
 ![✓ Logged in to github.com as v-natalia (/home/natalia/.config/gh/hosts.yml) ✓ Git operations for github.com configured to use ssh protocol. ✓ Token: ********\*\*\*********](images/loggedin.png 'Logged-in')
+
+## Issues with the support for password authentication.
+
+If a student gets this message:
+
+` “Support for password authentication was removed on August 13, 2021. Please use a personal access token instead. remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information. fatal: Authentication failed for github.com/username/...’” `
+
+The fix is:
+
+```
+gh auth status
+```
+
+If the result says: ` Git operation for github.com configured to use HTTPS protocol `
+Then change it with:
+
+```
+gh config set git_protocol ssh
+```
+
+Verify with:
+
+```
+gh auth status
+```
+The result should be: ` configured to use ssh protocol `
+
+
+## Could not access starting directory \\wsl\$\Ubuntu\etc error 0x8007010b
+
+If a student has a black terminal with the message `Could not access starting directory \\wsl\$\Ubuntu\etc error 0x8007010b`
+
+It seems this is a bug on wsl [See here](https://github.com/microsoft/WSL/issues/6995#issuecomment-856286100), but first verify that the student didn't make a mistake during the setup and putting other name on the starting directory.
+
+To fix it, go to the ubuntu terminal, tap `Ctrl+,` and then open the Settings JSON file, then locate the line `"Starting Directory"` as the picture shows, and comment it.
+
+![Starting directory](images/startingdir.png 'Starting Directory')
+
+
+Then add the line:
+
+```
+"commandline": "wsl.exe ~"
+```
+and save it. It should be fixed the next time they launch the terminal.
