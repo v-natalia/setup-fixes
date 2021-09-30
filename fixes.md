@@ -26,7 +26,7 @@ Or they can come after finished the setup with screen like this:
 ![Zshell Config issue- This is the Z Shell configuration function for new users, zsh-newuser-install. You are seeing this message because you have no zsh startup files the files .zshenv, .zprofile, .zshrc, .zlogin in the directory ~. This function can help you with a few settings that should make your use of the shell easier.](images/zshellconfig.png 'Zshell Config issue')
 to escape this screen tap '0' because afterwards we will get rid of this file.
 
-TO remove the "too many links issue, we need to run the following in the terminal (Ubuntu):
+TO remove the "too many links issue, we need to run the following in the terminal (Ubuntu (at this point should be the default if entering from Windows Terminal)):
 
 ```
 rm ~/.zshrc
@@ -48,23 +48,6 @@ echo \$GITHUB_USERNAME
 
 You should see your GitHub username printed. *If not, redo the `gh auth` step.* (see below)
 
-<details>
-  <summary><h2>gh auth issues.<h2></summary>
-
-  <br>
-  To fix the issues with `gh auth`, run:
-
-`gh auth logout`
-Say yes.
-`gh auth login -s 'user:email' -w`
-without editing. You need to Enter and it will open the browser where you need to put the code, accept, go back to the terminal and press ENTER again.
-Check with:
-`gh auth status`
-Is ok, if it says Logged in and it says that you use SSH protocol.
-</details>
-
-
-
 Then, check if the student already cloned dotfiles, in that case you can continue with the instalation.
 
 ```
@@ -81,6 +64,16 @@ gh api user/emails | jq -r '.[].email'
 *Before the next step run*
 
 ```
+git remote -v
+```
+
+ if it shows:
+`upstream git@github.com:lewagon/dotfiles.git (fetch)`
+`upstream git@github.com:lewagon/dotfiles.git (push)`
+
+it is necessary to remove it with:
+
+```
 git remote rm upstream
 ```
 
@@ -93,4 +86,38 @@ cd ~/code/\$GITHUB_USERNAME/dotfiles && zsh git_setup.sh
 This will ask you for your name (FirstName LastName) and your email.
 *Please now quit all your opened terminal windows.*
 
-If you open the terminal again and is not looking like it should you need to redo all the steps again. And again, until it looks pretty as we use it in Le Wagon.
+If you open the terminal again and is not looking like it should (the classic terminal of students of Le Wagon) you need to redo all the steps again. And again, and again, until it looks as we use it in Le Wagon.
+
+
+## gh auth issues.
+
+To fix the issues with "gh auth", for example when the student has this error after running: `gh api user/emails | jq -r '.[].email'`
+
+error:
+` gh: Not Found (HTTP 404)`
+` jq: error (at <stdin>:0): Cannot index string with string "email" `
+
+They need to run:
+
+```
+gh auth logout
+```
+
+Say yes to the prompt asking to confirm that you want to logout.
+Then, copy this line
+
+```
+gh auth login -s 'user:email' -w
+```
+
+without ANY editing.
+You need to press ENTER and it will open the browser where you need to put the code that appears in the terminal,
+authorize on the browser that Github have access to the things that it says there,
+go back to the terminal and press ENTER again.
+Check with:
+
+```
+gh auth status
+```
+
+Is ok, if it says Logged in and it says that is using SSH protocol.
