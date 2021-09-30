@@ -28,6 +28,7 @@ Then, the magic operates and VS Code will be connected to Ubuntu.
 ## Issues with ZSH configuration
 
 Also, I have encountered that after the [Dotfiles Configuration](https://github.com/lewagon/setup/blob/master/windows.md#dotfiles-standard-configuration), students get this error while trying to open VS Code (*"Unknown FileSystemError: Error: ELOOP: too many symbolic links encountered"*).
+
 ![Unknown FileSystemError: Error: ELOOP: too many symbolic links encountered, open '\wsl$\Ubuntu\home\name.zshrc'](images/toomanylinks.png 'Too Many Symbolic Links')
 
 Or they can come after finished the setup with a screen like this (*"Zshell Config issue- This is the Z Shell configuration function for new users, zsh-newuser-install. You are seeing this message because you have no zsh startup files the files .zshenv, .zprofile, .zshrc, .zlogin in the directory ~."*):
@@ -138,4 +139,4 @@ gh auth status
 Is ok, if it says Logged in and it says that is using SSH protocol.
 Like in the image below.
 
-![Unknown FileSystemError: Error: ELOOP: too many symbolic links encountered, open '\wsl$\Ubuntu\home\name.zshrc'](images/toomanylinks.png 'Too Many Symbolic Links')
+![✓ Logged in to github.com as v-natalia (/home/natalia/.config/gh/hosts.yml) ✓ Git operations for github.com configured to use ssh protocol. ✓ Token: ********\*\*\*********](images/loggedin.png 'Logged-in')
