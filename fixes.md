@@ -1,5 +1,25 @@
 Hey teachers, during the setup for Windows, some steps are not working as they should:
 
+
+## Not able to enable Hyper-V on Windows Home
+The packages required for WSl are not automatically installed.
+
+To download them, please copy the following lines in a text file on desktop and save it with the name `hv.bat`
+
+```
+     pushd "%~dp0"
+     dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum >hv.txt
+     for /f %%i in ('findstr /i . hv.txt 2^>nul') do dism /online /norestart /add-package:"%SystemRoot%\servicing\Packages\%%i"
+     del hv.txt
+     Dism /online /enable-feature /featurename:Microsoft-Hyper-V -All /LimitAccess /ALL
+     pause
+```
+After saving, open the file manager (File Explorer) and right mouse button, click the file and choose run as administrator,
+it will open a Terminal window and it will install many packages to enable the features needed.
+Once complete it will reboot the machine and then it will be possible to turn on Hyper-v from Programs and Features.
+
+
+
 ## VS Code connection to Ubuntu
 
 ### [Connecting VS Code to Ubuntu](https://github.com/lewagon/setup/blob/master/windows.md#connecting-vs-code-to-ubuntu)
