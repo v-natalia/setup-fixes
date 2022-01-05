@@ -1,5 +1,19 @@
 Hey teachers, during the setup for Windows, some steps are not working as they should:
 
+## Error after trying to do rbenv install for Ruby install .bin/readlink no such file or directory
+In the step to install Ruby (with `rbenv install 2.7.4` the students get an error finishing with : `.bin/readlink no such file or directory`I
+Path was correctly configured so the fix for this is to edit the Settings of the terminal.Press Ctrl + ,
+
+It should open the terminal settings:
+The student must replace the line starting with :
+"startingDirectory":
+for this line:
+
+```
+"commandline": "wsl.exe ~"
+```
+Then save the file, open a new terminal window and then the command to install Ruby should work again.
+
 
 ## Not able to enable Hyper-V on Windows Home
 The packages required for WSl are not automatically installed.
@@ -17,7 +31,6 @@ To download them, please copy the following lines in a text file on desktop and 
 After saving, open the file manager (File Explorer) and right mouse button, click the file and choose run as administrator,
 it will open a Terminal window and it will install many packages to enable the features needed.
 Once complete it will reboot the machine and then it will be possible to turn on Hyper-v from Programs and Features.
-
 
 
 ## VS Code connection to Ubuntu
