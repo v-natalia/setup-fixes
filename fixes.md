@@ -1,12 +1,11 @@
 Hey teachers, during the setup for Windows, some steps are not working as they should:
 
 ## Error after trying to do rbenv install for Ruby install .bin/readlink no such file or directory
-In the step to install Ruby (with `rbenv install 2.7.4` the students get an error finishing with : `.bin/readlink no such file or directory`I
-Path was correctly configured so the fix for this is to edit the Settings of the terminal.Press Ctrl + ,
+In the step to install Ruby (with `rbenv install 2.7.4`) the students get an error finishing with : `.bin/readlink no such file or directory`I
+Path was correctly configured so the fix for this is to edit the Settings of the terminal.
 
-It should open the terminal settings:
-The student must replace the line starting with :
-"startingDirectory":
+Press `Ctrl + ` on a Terminal window. This wil open the terminal settings:
+The student must replace the line starting with : `"startingDirectory":`
 for this line:
 
 ```
@@ -16,7 +15,7 @@ Then save the file, open a new terminal window and then the command to install R
 
 
 ## Not able to enable Hyper-V on Windows Home
-The packages required for WSl are not automatically installed.
+The packages required for WSL are not automatically installed.
 
 To download them, please copy the following lines in a text file on desktop and save it with the name `hv.bat`
 
