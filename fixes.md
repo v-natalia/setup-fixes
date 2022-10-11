@@ -1,5 +1,25 @@
 Hey teachers, during the setup for Windows, some steps are not working as they should:
 
+
+## Error 0x8027025a error when installing Ubuntu on WSL
+Or Ubuntu never finishes downloading/installing
+
+
+`wsl -l -v`
+# To confirm the distribution name.
+
+# Update the commands below based on your version.
+
+`wsl --unregister Ubuntu`
+
+And then install using
+
+`ubuntu.exe install --ui=none`
+
+Source
+
+[Source](https://askubuntu.com/questions/1406388/how-to-fix-0x8027025a-error-when-installing-ubuntu-22-04-lts-on-wsl)
+
 ## Error after trying to do rbenv install for Ruby install .bin/readlink no such file or directory
 In the step to install Ruby (with `rbenv install 2.7.4`) the students get an error finishing with : `.bin/readlink no such file or directory`I
 Path was correctly configured so the fix for this is to edit the Settings of the terminal.
